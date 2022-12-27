@@ -13,7 +13,7 @@ from log import Logger
 log_debug = Logger('cfdns.log', level='debug')
 urllib3.disable_warnings()
 
-ips = []
+cfips = []
 api = ''
 mail = ''
 domain = ''
@@ -23,13 +23,13 @@ def get_line():
 	with open('./result.csv', encoding='utf-8') as csvf:
 		csvReader = csv.DictReader(csvf)
 		print(type(csvReader))
-		ips.append(next(csvReader))
+		cfips.append(next(csvReader))
 
 
 def get_ip():
 	for i in range(10):
 #		os.system("CloudflareSpeedTest.exe")
-		os.system("CloudflareSpeedTest")
+		os.system("./CloudflareSpeedTest")
 		get_line()
 
 
@@ -59,7 +59,6 @@ def put_cf(ip):
 	}
 	data = '{"content": "'+ ip + '"}'
 	log_debug.logger.info(ip)
-	log_debug.logger.info(net)
 	log_debug.logger.info(url)
 	log_debug.logger.info(requests.patch(url, headers = head, data = data).content)
 	
@@ -67,7 +66,7 @@ def put_cf(ip):
 def main():
 	os.system("chmod +x CloudflareSpeedTest")
 	get_ip()
-	print(ips)
+	print(cfips)
 	result = sort_ip()
 	put_cf(result)
 
