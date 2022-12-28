@@ -41,10 +41,10 @@ def sort_ip():
 	ips = jsonpath.jsonpath(cfips, ippath)
 	speeds = jsonpath.jsonpath(cfips, speedpath)
 	losses = jsonpath.jsonpath(cfips, losspath)
-	tmpspeed = int(speeds[0])
+	tmpspeed = speeds[0]
 	ret = ips[0]
 	for i in range(len(ips)):
-		if tmpspeed < speeds[i] and losses[i] == 0:
+		if tmpspeed < speeds[i] and int(float(losses[i])) == 0:
 			tmpspeed = speeds[i]
 			ret = ips[i]
 	return ret
