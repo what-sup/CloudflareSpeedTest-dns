@@ -28,8 +28,8 @@ def get_line():
 
 def get_ip():
 	for i in range(10):
-#		os.system("CloudflareSpeedTest.exe")
-		os.system("./CloudflareSpeedTest")
+#		os.system("CloudflareSpeedTest.exe -t 8 -tll 100 -sl 1")
+		os.system("./CloudflareSpeedTest -t 8 -tll 100 -sl 1")
 		get_line()
 
 
