@@ -44,7 +44,7 @@ def sort_ip():
 	tmpspeed = speeds[0]
 	ret = ips[0]
 	for i in range(len(ips)):
-		if tmpspeed < speeds[i] and int(float(losses[i])) == 0:
+		if float(tmpspeed) < float(speeds[i]) and int(float(losses[i])) == 0:
 			tmpspeed = speeds[i]
 			ret = ips[i]
 	return ret
