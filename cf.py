@@ -64,7 +64,7 @@ def put_cf(ip):
 	
 
 def main():
-	os.system("chmod +x CloudflareSpeedTest")
+	os.system("chmod +x ./CloudflareSpeedTest")
 	get_ip()
 	print(cfips)
 	result = sort_ip()
