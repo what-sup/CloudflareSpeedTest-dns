@@ -28,8 +28,7 @@ def get_line():
 
 def get_ip():
 	for i in range(10):
-#		os.system("CloudflareSpeedTest.exe -t 8 -tll 100 -sl 1")
-		os.system("./CloudflareSpeedTest -t 8 -tll 100 -sl 1")
+		os.system("./CloudflareST -t 8 -tll 100 -sl 1 -o result.csv")
 		get_line()
 
 
@@ -64,7 +63,7 @@ def put_cf(ip):
 	
 
 def main():
-	os.system("chmod +x ./CloudflareSpeedTest")
+	os.system("chmod +x ./CloudflareST")
 	get_ip()
 	print(cfips)
 	result = sort_ip()
